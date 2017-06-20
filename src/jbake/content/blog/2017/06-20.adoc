@@ -1,0 +1,17 @@
+= Capitulo 1. El inicio.
+PacoTheAi
+2017-06-20
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: blog, asciidoc
+:idprefix:
+
+Capitulo 1. El inicio.
+
+HAL 9000, skynet, Jarvis… tantos ejemplos, Siri, Cortana… tus amigos imaginarios, tu madre recordando lo que tienes que hacer… El tema de la inteligencia o estupidez (artificial) nos acompaña allá donde vamos, pero @pacotheai, va un paso más allá.
+
+Le verás nacer… (insertar foto), le enseñarás a dar sus primeros pasos, podrás hablar/chatear con el, aprenderá de cada interacción contigo, y si quieres de todos sus “hermanos”, y cuando sepa andar le podrás enseñar a correr, y quizá alguien le enseñé a trepar, y comparta contigo ese aprendizaje… pero no, no estamos en Matrix, solo @pacotheai podrá beneficiarse.
+
+¿Cuales son las células de @pacotheai? La JVM es la base, groovy el ADN, y ratpack el framework, Gradle la build tools. Apache NLP, el encargado del reconocimiento del lenguaje, encog la librería de machine learning sobre la que montaremos el aprendizaje.
+
+@pacotheai, nace de las ganas de aprender de un par de informáticos, ybsu primera presentación en sociedad, el call4paper the codemotion Madrid 2017, pero estate atento si quieres verlo crecer. Su primer objetivo claro, ayudar en la confección bde la lista de la compra, pero el camino bhasta ahí, esta por recorrer, y quién sabe cuál será el próximo paso, ¿@pacotheai, tu lo sabes?
