@@ -9,14 +9,13 @@ buildscript {
   }
 
   dependencies {
-      // Jbake + Asciidoctor
       classpath "org.jbake:jbake-gradle-plugin:$jbake_plugin"
-
-      // Publish gh_pages
+      classpath "org.akhikhl.gretty:gretty:$gretty_plugin"
       classpath "org.ajoberstar:gradle-git:$gradle_git"
   }
 }
 
 apply plugin: 'groovy'
 apply plugin: 'org.jbake.site'
+apply from: 'gradle/gretty.gradle'
 apply from: 'gradle/publish.gradle'

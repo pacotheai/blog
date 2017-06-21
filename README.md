@@ -1,20 +1,28 @@
-# JBake Site - Groovy Template
+# blog.pacotheai.com
 
-Your jBake content can be found in `src/jbake` and you can build the site using:
+## Blog
 
-    ./gradlew jbake
-    
-Your site will be generated in `build/jbake`.
+This is the blog of pacotheai.com where we hope to write our
+discoveries while learning more about creating an AI.
 
-You can start a local server with your generated content using:
+## How to generate the site
 
-  groovy serve.groovy [port]
-  
-> There is an upcoming release of the `gradle-jbake-plugin` which will have serving support built-in, this is just a stop gap solution until then.
+The jBake content can be found in `src/jbake` and you can build the
+site using:
+
+```shell
+./gradlew bake
+```
+
+Your site will be generated in `build/jbake`. You can start a local
+server with your generated content using:
+
+```shell
+./gradlew appStart
+```
 
 When you are ready to publish the site to your GitHub-Pages, run:
 
-  ./gradlew publish
-
-    
-# blog
+```shell
+./gradlew publish
+```
