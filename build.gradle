@@ -1,33 +1,22 @@
 buildscript {
   repositories {
-      maven { url "http://dl.bintray.com/calmdev/gradle-plugins" }
       mavenLocal()
       mavenCentral()
       jcenter()
+      maven {
+          url "http://dl.bintray.com/calmdev/gradle-plugins"
+      }
   }
 
   dependencies {
       // Jbake + Asciidoctor
-      classpath 'me.champeau.gradle:jbake-gradle-plugin:0.3.0-alpha.1'
-      classpath 'org.jbake:jbake-core:2.5.0'
-      classpath 'org.freemarker:freemarker:2.3.19'
-      classpath 'org.pegdown:pegdown:1.4.2'
-      classpath 'org.asciidoctor:asciidoctorj:1.5.1'
-      classpath 'org.asciidoctor:asciidoctorj-diagram:1.5.0'
+      classpath "org.jbake:jbake-gradle-plugin:$jbake_plugin"
 
-      classpath 'org.ajoberstar:gradle-git:1.4.2'
+      // Publish gh_pages
+      classpath "org.ajoberstar:gradle-git:$gradle_git"
   }
 }
 
 apply plugin: 'groovy'
-apply plugin: 'me.champeau.jbake'
-apply plugin: 'org.ajoberstar.github-pages'
-
-task publish(type: GradleBuild) {           
-    buildFile = 'publish.gradle'
-    tasks = ['publishGhPages']
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.0'
-}
+apply plugin: 'org.jbake.site'
+apply from: 'gradle/publish.gradle'
