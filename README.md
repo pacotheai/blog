@@ -1,9 +1,11 @@
-# blog.pacotheai.com
+# Blog
 
-## Blog
+## What is this about ?
 
-This is the blog of pacotheai.com where we hope to write our
-discoveries while learning more about creating an AI.
+This is the blog of `pacotheai` where we hope to write our discoveries
+while learning more about creating an AI. The blog is available at:
+
+[https://pacotheai.github.io/blog/](https://pacotheai.github.io/blog/)
 
 ## Generate the site
 
