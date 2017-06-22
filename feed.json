@@ -1,0 +1,24 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "PACOTHEAI",
+    "description": " ",
+    "home_page_url": "https://pacotheai.github.io/blog",
+    "feed_url": "https://pacotheai.github.io/blog/feed.json",
+    "author" : {
+    	"name": "PACOTHEAI",
+    	"avatar": "https://pacotheai.github.io/blog/img/main/avatar.png"
+    },
+    "items": [
+        {
+            "id": "https://pacotheai.github.io/blog/blog/2017/06-20.html",
+            
+           
+            "url": "https://pacotheai.github.io/blog/blog/2017/06-20.html",
+            "date_published": "2017-06-20T00:00:00Z",
+            
+            "author" : "PacoTheAi",
+            "tags": [ "blog",   "asciidoc" ],
+            "content_html" : "<div class=\"paragraph\">\n<p>Capitulo 1. El inicio.<\/p>\n<\/div>\n<div class=\"paragraph\">\n<p>HAL 9000, skynet, Jarvis… tantos ejemplos, Siri, Cortana… tus amigos\nimaginarios, tu madre recordando lo que tienes que hacer… El tema de\nla inteligencia o estupidez (artificial) nos acompaña allá donde\nvamos, pero @pacotheai, va un paso más allá.<\/p>\n<\/div>\n<div class=\"paragraph\">\n<p>Le verás nacer… (insertar foto), le enseñarás a dar sus primeros\npasos, podrás hablar/chatear con el, aprenderá de cada interacción\ncontigo, y si quieres de todos sus “hermanos”, y cuando sepa andar le\npodrás enseñar a correr, y quizá alguien le enseñé a trepar, y\ncomparta contigo ese aprendizaje… pero no, no estamos en Matrix, solo\n@pacotheai podrá beneficiarse.<\/p>\n<\/div>\n<div class=\"paragraph\">\n<p>¿Cuales son las células de @pacotheai? La JVM es la base,\n<a href=\"http://www.groovy-lang.org/\">groovy<\/a> el ADN, y\n<a href=\"https://ratpack.io/\">Ratpack<\/a> el framework, Gradle la build\ntools. Apache NLP, el encargado del reconocimiento del lenguaje, encog\nla librería de machine learning sobre la que montaremos el\naprendizaje.<\/p>\n<\/div>\n<div class=\"paragraph\">\n<p>@pacotheai, nace de las ganas de aprender de un par de informáticos,\nybsu primera presentación en sociedad, el call4paper the codemotion\nMadrid 2017, pero estate atento si quieres verlo crecer. Su primer\nobjetivo claro, ayudar en la confección bde la lista de la compra,\npero el camino bhasta ahí, esta por recorrer, y quién sabe cuál será\nel próximo paso, ¿@pacotheai, tu lo sabes?<\/p>\n<\/div>"
+        }
+    ]
+}
