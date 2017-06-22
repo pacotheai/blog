@@ -21,6 +21,8 @@ server with your generated content using:
 ./gradlew appStart
 ```
 
+Then open your browser at `http://localhost:8080`
+
 When you are ready to publish the site to your GitHub-Pages, run:
 
 ```shell
