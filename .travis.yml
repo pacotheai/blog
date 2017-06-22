@@ -1,0 +1,16 @@
+language: java
+jdk:
+- oraclejdk8
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+  - "$HOME/.gradle/caches/"
+  - "$HOME/.gradle/wrapper/"
+env:
+  global:
+    secure: mKZpKdTAoV3c+SIrO0zBAwED8neMkdxBtcrIove3paq11DVY1aqOcjzjK87lpxROZXi+GSIAL1zijrkFn8uTeNkagfYO3h2UFw97lzQIjuqdgi0OLfkU+11C0lZLr9fybdyM2UJ6L/UMdIautgAhcBm0rNnMm/C1mVz7Yx/TomZZxSxIpDC4RDMOemVbJb2HZPcWwn+mwusAVhx6vO+TGk/2cJSaqI/zyvKfGWNoV6rk9CvlTVeimHI1TxapTdm72ivU8iECuyIlHAVkIVGASvGUd6DyCDldml7QRpINlzYIIV12Aw2/XR+LyOz0LZ07RbNqfnveaOviNr6bpvZB6ern/JOV3fF9iO7Mp3FPKwxcamleGJ4jZ/mSuufY8Js+e0dtfVhFg6s5n58A1X1WWq+Xiby0riTmtp+a/mK4cHyOGqhGRymsCymJOlgn9Y+ti61cI/I+uGibr7DKH+EpRBgQ4RbcdkN3jhfVabZ+/W8IzKCJN27Puj+/djJB3gKuhwF8K+QF+aJv7nLrHw4Ng+h7H5GXoHGGwJuIjrzv7ljhJqNm5Wme7s794clg0f3kF//Hwg//5MDL9IpWZ1y2wPT4YyFdXmE7tyCcj+q21Y2/ehuq+4rrnQHbAkkZaR9/iNgn9ZdpxxisQotYDccvzpnSiwhclFgT5mLbub5XaxQ=
+script: "./gradlew clean bake publishGhPages"
+branches:
+  only:
+  - master
