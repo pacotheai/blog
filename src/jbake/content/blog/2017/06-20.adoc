@@ -6,30 +6,14 @@ PacoTheAi
 :jbake-tags: blog, asciidoc
 :idprefix:
 
-Capitulo 1. El inicio.
+Chapter 1. The beginning.
 
-HAL 9000, skynet, Jarvis… tantos ejemplos, Siri, Cortana… tus amigos
-imaginarios, tu madre recordando lo que tienes que hacer… El tema de
-la inteligencia o estupidez (artificial) nos acompaña allá donde
-vamos, pero @pacotheai, va un paso más allá.
+HAL 9000, skynet, Jarvis... so many examples, Siri, Cortana... your imaginary friends, your mother remembering what you have to do... The subject of intelligence or stupidity (artificial) accompanies us wherever we go, but @pacotheai, go one step beyond.
 
-Le verás nacer… (insertar foto), le enseñarás a dar sus primeros
-pasos, podrás hablar/chatear con el, aprenderá de cada interacción
-contigo, y si quieres de todos sus “hermanos”, y cuando sepa andar le
-podrás enseñar a correr, y quizá alguien le enseñé a trepar, y
-comparta contigo ese aprendizaje… pero no, no estamos en Matrix, solo
-@pacotheai podrá beneficiarse.
+image::/blog/img/blog/pacotheai_born.jpg[]
 
-¿Cuales son las células de @pacotheai? La JVM es la base,
-http://www.groovy-lang.org/[groovy] el ADN, y
-https://ratpack.io/[Ratpack] el framework, Gradle la build
-tools. Apache NLP, el encargado del reconocimiento del lenguaje, encog
-la librería de machine learning sobre la que montaremos el
-aprendizaje.
+You will see him born... teach him to take his first steps, you can talk/chat with him, you will learn from every interaction with you, and if you want from all his "brothers", and when you know how to walk you can teach him to run, and maybe someone taught him to climb, and share with you that learning .. but no, we are not in the Matrix, only @pacotheai can benefit.
 
-@pacotheai, nace de las ganas de aprender de un par de informáticos,
-ybsu primera presentación en sociedad, el call4paper the codemotion
-Madrid 2017, pero estate atento si quieres verlo crecer. Su primer
-objetivo claro, ayudar en la confección bde la lista de la compra,
-pero el camino bhasta ahí, esta por recorrer, y quién sabe cuál será
-el próximo paso, ¿@pacotheai, tu lo sabes?
+What are the cells of @pacotheai? The JVM is the base, http://groovy-lang.org/[Groovy] the DNA, and the https://ratpack.io/[Ratpack] framework, https://gradle.org/[Gradle] the build tools. https://opennlp.apache.org/[Apache Open NLP], the person responsible for language recognition, http://www.heatonresearch.com/[Encog] the machine learning library (in Java) on which we will set up learning.
+
+@pacotheai, born of the desire to learn from a couple of computer scientists, and first submission, the call4paper the codemotion Madrid 2017, but stay tuned if you want to see it grow. Your first clear objective, to help in the preparation of the shopping list, but the way to there, is to go, and who knows what will be the next step, @pacotheai, do you know?
