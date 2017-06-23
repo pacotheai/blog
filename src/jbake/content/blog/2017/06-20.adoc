@@ -1,4 +1,4 @@
-= Capitulo 1. El inicio.
+= Chapter 1. The beginning.
 PacoTheAi
 2017-06-20
 :jbake-type: post
