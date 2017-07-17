@@ -1,0 +1,83 @@
+= Chapter 2. What is machine learning, and you ask me?
+PacoTheAi
+2017-07-17
+:jbake-type: post
+:jbake-status: published
+:jbake-tags: blog, asciidoc
+:idprefix:
+
+Chapter 2. What is machine learning, and you ask me?
+
+From a time to this part, the https://en.wikipedia.org/wiki/Big_data[Big Data],
+the https://en.wikipedia.org/wiki/Machine_learning[Machine Learning], the
+https://en.wikipedia.org/wiki/Artificial_intelligence[Artificial Intelligence],
+the https://en.wikipedia.org/wiki/Chatbot[Bots], the https://en.wikipedia.org/wiki/Data_science[Data Science]...
+Have jumped to the covers, that the technicians visit assiduously. All of them
+overlap in certain domains, and have certain relationships, that a rookie of the
+computing, may not get clear, and therefore not know where it starts
+one and finish another.
+
+Throughout this trip, which we will do next to https://twitter.com/pacotheai[@pacotheai],
+we will try to make clear the limits of each one of these worlds,
+to be able to dive in them without the currents of one to another they take away to us.
+
+Let's start with clarifying where is ML versus AI? The objective of the AI is to
+teach computers, to do what humans do today, better, and learning is undoubtedly
+the most important of those things. The machine learning, can be considered a
+subfield of artificial intelligence, but as we have said, has grown so much, that
+today has more pull than his father. Under the different names of the ML we have:
+https://en.wikipedia.org/wiki/Pattern_recognition[recognition of patterns],
+https://en.wikipedia.org/wiki/Data_mining[data mining], https://en.wikipedia.org/wiki/Predictive_analytics[predictive analysis] ...
+
+And within the ML, how many ways to do things there, and since when there is each?
+
+* The https://en.wikipedia.org/wiki/Symbolic_artificial_intelligence[symbolists]
+work with the reverse deduction (from the particular to the general). Very usual
+between '50 and '80, in the creation of https://en.wikipedia.org/wiki/Expert_system[expert systems]
+or those known today, such as https://en.wikipedia.org/wiki/Business_rule[bussines rules].
+These expert systems have an inference engine, "if-else" set, and
+a knowledge database. With both pieces, new situations could be predicted.
+
+* The https://en.wikipedia.org/wiki/Connectivism[Connectivism], unlike
+the symbolists, think that life does not work by logic. The basic theory
+is the https://en.wikipedia.org/wiki/Neuroscience[neuroscience], and its master algorithm,
+The https://en.wikipedia.org/wiki/Backpropagation[Backpropagation]. The connectivists,
+have their heyday around the year 2000, and this is where the neural networks,
+begin to gain strength.
+
+* The https://en.wikipedia.org/wiki/Evolutionary_computation[Evolutionary] are based
+in the principles of evolutionary biology, Darwin. There can only be one, which
+would say Connor Macleod. The alternatives compete with each other, they mix and only the
+more suitable are not discarded, which is progressively better solutions.
+
+* The https://en.wikipedia.org/wiki/Bayesian_inference[Bayesian] have the
+as an ally, to determine the likelihood that something we see the probability
+that it has already happened before, with a "correction factor".
+
+* Last would be the analogists. Let's think about the recommendation algorithms.
+If A and B have similar tastes, what B knows and A does not, A. will like it.
+Would like to refer here to a book https://www.amazon.es/dp/8490322503[Thinking fast, Thinking Slow]
+that can help us understand how we think.
+
+It is clear that 70 years, to this part, things have changed a lot in this worlds
+of technology. The blessed silicic, the microprocessors, all this has allowed to
+jump into the void ... But what about all these algorithms? Programmers only
+understand code. How is this coded?
+
+Little by little we will learn together as each of these tribes works, and try
+to frame the code that we use within one or several of those paths, because in
+search of the perfect algorithm for https://twitter.com/pacotheai[@pacotheai],
+many of the libraries we use mix the different approaches, until now known.
+
+For now, just a small tips, a series of steps: data acquisition,
+normalization, design the "neural network": input, hidden, output layers,
+activation functions and optimization of the result.
+
+Are you ready to embark on the path to barbecue? Do not forget the beers ;)
+
+Refernces:
+
+* https://youtu.be/v0t7ZO8Ah4A?list=PL6O3g23-p8Tr5eqnIIPdBD_8eE5JBDBik[Has AI Arrived? by Paco Nathan]
+* https://www.amazon.es/dp/0141979240[The master algorithm]
+* https://www.bbva.com/es/las-cinco-tribus-del-machine-learning/[Las cinco tribus del ‘machine learning’]
+* https://www.youtube.com/watch?v=2OAaU5Vtjug[It's a risky life]
