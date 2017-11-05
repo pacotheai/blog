@@ -147,6 +147,9 @@
                 <header>
                     <h3>Recent Posts</h3>
                 </header>
+                      <li>
+                          <a href="2016/10/retrolambda.html"><p>Retrolambda and default methods</p></a>
+                      </li>
             </ul>
         </section>
 
@@ -165,13 +168,13 @@
    <header>
     <div class="title">
 
-                    <h2><a href="2017/07/groovy-metaprograming.es.html">Groovy Metaprograming</a></h2>
+                    <h2><a href="2016/10/retrolambda.html">Retrolambda and default methods</a></h2>
 
     </div>
     <div class="meta">
          <time class="published"
-            datetime='jul 08, 2017'>
-            jul 08, 2017</time>
+            datetime='oct 19, 2016'>
+            oct 19, 2016</time>
             <div class="published eta"></div>
         <span class="author"/><span class="name">Jose Juan Montiel</span><img src="img/main/avatar.png" alt="Jose Juan Montiel" /></span>
     </div>
@@ -182,241 +185,240 @@
          
     <div id="content">
        <div class="sect1">
-<h2 id="_generacion_de_codigo_del_modelo_a_la_vista">Generacion de codigo. Del modelo a la vista.</h2>
+<h2 id="_retrolambda_and_hippo_cms">Retrolambda and Hippo Cms</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Bueno, por fin, mas de 9 meses despues de su inicio, me he animado a terminar
-esta entrada del blog, y fue tras el tweet de <a href="https://twitter.com/jagedn/status/882984377596116992">@jagedn</a>
-que despues de la charla de @ilopmar en <a href="http://www.madridgug.com/2017/06/madrid-gug-julio-2017-sacando-partido.html">madridgug</a>,
-hizo que me animara con <a href="https://github.com/josejuanmontiel/asteroid/commit/9df7f079d25f183f7cade71900cce86264c9ed2f">asteroid</a>.</p>
+<p><a href="https://code.onehippo.org/cms-community/hippo-cms">This project</a> can only be compiled with the JDK 8 as it makes heavy use of its features: lambdas, default methods and more.</p>
 </div>
 <div class="paragraph">
-<p>Pero bueno, por orden.</p>
+<p>Thanks to <a href="https://github.com/orfjackal/retrolambda">Retrolambda</a>, many projects that make use of the new features of JDK 8 can be migrated to JDK7 (and earlier) and therefore also to Android, where primary use is made this tool.</p>
 </div>
 <div class="paragraph">
-<p>En <a href="https://josejuanmontiel.github.io/blog/2016/10/groovy-thymelaf.es.html">uno</a>
-de mis anteriores artículos, hablaba de como, usando Groovy y Thymeleaf, se podía
-separar aun un poco mas, la maqueta de las indicaciones de donde colocar los
-elementos de binding, para mostrar los datos del modelo; y deje planteado unos
-próximos pasos, de como se podía generar parte de ese código.</p>
-</div>
-<div class="paragraph">
-<p>Y no voy a hablar de como generar ese codigo en este post, tendra que ser mas
-adelante pero por lo menos, dejare listadas una serie de herramientas "utiles"
-para generar codigo.</p>
-</div>
-<div class="paragraph">
-<p>A día de hoy, existen muchas maneras de "generar codigo". Por ejemplo, en
-<a href="http://www.genbetadev.com/paradigmas-de-programacion/metaprogramacion-en-compile-time-con-groovy">este articulo</a>
-Ivan nos cuenta las opciones que hay en groovy (en tiempo de compilacion, y en
-uno anterior, las de tiempo de ejecucion).</p>
-</div>
-<div class="paragraph">
-<p>Y en <a href="http://www.madridgug.com/2016/11/madrid-gug-diciembre-2016-macro-macro.html">esta charla</a>,
-Mario, se centra en las ayudas que existen para la Metaprogramacion en groovy, los macros.
-Y también nos habla de una librería para ayudarnos en ese proceso de creacion de
-macros: <a href="https://github.com/grooviter/asteroid">asteroid</a></p>
-</div>
-<div class="paragraph">
-<p>Si tuvieramos que hacer una clasificacion, diferente, de las distintas maneras
-de crear codigo podriamos hacerlo asi:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Las de "java"</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Las que se ven</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Las que generan codigo fuente</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Cosas como <a href="http://docs.spring.io/spring-roo/reference/html/intro.html">Spring Roo</a>
-o <a href="http://yeoman.io">Yeoman</a> o la mas actual <a href="https://jhipster.github.io/">JHipster</a>
-son herramientas que generan codigo "scaffolding".</p>
-</li>
-<li>
-<p>Pero cosas como esta libreria <a href="https://github.com/square/javapoet">Javapoet</a>
-genera codigo fuente, a partir de un DSL, y asi partimos de unos fuentes comunes.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Las que generan codigo "compilado". <a href="http://docs.oracle.com/javase/7/docs/technotes/guides/apt/">APT</a>,
-es la herramienta en la que se basan el "resto" que modifcian el <a href="http://www.eclipse.org/articles/Article-JavaCodeManipulation_AST/">AST</a>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Por ejemplo, esta libreria, <a href="https://github.com/AlbertoSH/MagicBuilder">MagicBuilder</a> genera codigo en tiempo de compilacion, siguiendo el patron builder.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Las que modifican el bytecode</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="http://asm.ow2.org/">ASM4</a></p>
-</li>
-<li>
-<p><a href="http://bytebuddy.net/#/">ByteBuddy</a></p>
-</li>
-<li>
-<p><a href="https://github.com/raphw/byte-buddy/tree/master/byte-buddy-android">ByteBuddy para Android</a></p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Las que "no" se ven</p>
-<div class="olist lowerroman">
-<ol class="lowerroman" type="i">
-<li>
-<p>Las que usan injeccion de dependencias.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Al final declarar una variable, y que en tiempo de ejecucion se le haya
-asignado un valor, tambien es una manera de modificar el codigo. Aqui tambien
-tendrian cabida, ese tipo de cosas que, entre otros, hace Spring para generar
-los beans que nos injecta a traves de proxies por ejemplo.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="https://eclipse.org/aspectj/">AspectJ</a> / <a href="https://docs.spring.io/spring/docs/current/spring-framework-reference/html/aop.html">AOP</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Esto, de alguna manera modifica el codigo/ast/bytecode, pero la peculiaridad
-es la manera de definir donde van a actuar estas transformaciones. Podrian
-considerarse una especie de AST Globales.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><a href="http://jnb.ociweb.com/jnb/jnbJan2010.html">Lombock</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Es para aquellos que no pueden usar Groovy, que por lo menos, no tengan
-que hacer ciertas cosas que siempre son igual, como los getter/setter. Esto si
-entra claramente dentro de las AST.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Las que modifican el codigo "cargado" en un "entorno" por otro</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://zeroturnaround.com/software/jrebel/">JRebel</a></p>
-</li>
-<li>
-<p><a href="https://github.com/spring-projects/spring-loaded">spring-loaded</a></p>
-</li>
-<li>
-<p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html">spring-dev-tools</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p>Vemos <a href="https://github.com/spring-projects/spring-boot/blob/1.4.x/spring-boot-integration-tests/spring-boot-devtools-tests/src/test/java/org/springframework/boot/devtools/tests/DevToolsIntegrationTests.java#L179-L188">aqui</a>
-como para los test de esta ultima han usado ByteBuddy.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Las que cambian el codigo en produccion mediante dinamic attach. <a href="https://www.sitepoint.com/fixing-bugs-in-running-java-code-with-dynamic-attach/">Dynamic attach</a>.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>En esta charla, nos cuentan  como usar <a href="http://www.madridgug.com/2015/11/codemotion-2015-jose-miguel-rodriguez.html">YouDebug</a> como un depurador interactivo en produccion.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Las que compilan codigo desde unos fuentes en produccion. <a href="https://blog.frankel.ch/compilation-java-code-on-the-fly/#gsc.tab=0">Compile sources en runtime</a>.</p>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>El mundo android</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Asistidas por gradle (con el plugin APT)</p>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://google.github.io/dagger/users-guide">Dagger</a></p>
-</li>
-<li>
-<p><a href="http://jakewharton.github.io/butterknife/">Butterknife</a></p>
-</li>
-<li>
-<p><a href="http://androidannotations.org/">Android Annotation</a></p>
-</li>
-<li>
-<p><a href="https://github.com/Arasthel/SwissKnife">SwissKnife</a> para groovy.</p>
-</li>
-</ul>
-</div>
-</li>
-</ol>
-</div>
-</li>
-<li>
-<p>Osgi vs Jigsaw
-Jeje, bueno, esto para otro dia :)</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Y bueno, para que no se haga "bola" esta entrada del blog, simplemente reflejar
-"las distintas maneras de "generar codigo" que existen en el mundo de la JVM (java, groovy) ¿alguna mas?</p>
+<p>And with <a href="https://github.com/orfjackal/retrolambda#maven-plugin">this maven plugin</a> you can integrate it into your buildsystem. <a href="https://github.com/orfjackal/retrolambda/blob/master/end-to-end-tests/pom.xml">Here is</a> an example of how to use it. And besides, there is another <a href="https://github.com/evant/gradle-retrolambda">for Gradle</a>.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_bola_extra">Bola extra</h2>
+<h2 id="_limitations">Limitations</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Algunas conversaciones en stackoverflow sobre android, groovy y generacion de codigo por APT</p>
+<p>But there are some well known <a href="https://github.com/orfjackal/retrolambda#known-limitations">limitations</a>, which makes the migration of the default method of JDK 8 are not so easy, "must to be backported together, with one execution of Retrolambda".</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><a href="http://stackoverflow.com/questions/31536234/android-annotations-multiple-paths-to-apt" class="bare">http://stackoverflow.com/questions/31536234/android-annotations-multiple-paths-to-apt</a></p>
-</li>
-<li>
-<p><a href="http://stackoverflow.com/questions/30991656/what-its-the-first-the-annotated-class-egg-or-used-class-chicken" class="bare">http://stackoverflow.com/questions/30991656/what-its-the-first-the-annotated-class-egg-or-used-class-chicken</a></p>
-</li>
-<li>
-<p><a href="http://stackoverflow.com/questions/31160831/android-groovy-android-annotation" class="bare">http://stackoverflow.com/questions/31160831/android-groovy-android-annotation</a></p>
-</li>
-</ol>
+<div class="paragraph">
+<p>So <a href="http://orfjackal.github.io/retrolambda/retrolambda-maven-plugin/process-main-mojo.html">by default</a> is disabled in the migration.</p>
+</div>
+<div class="paragraph">
+<p>When Retrolmambda migrates <a href="https://github.com/orfjackal/retrolambda#backported-language-features">Default Methods</a>:
+Default methods are backported by copying the default methods to a companion class (interface name + "$") as static methods, replacing the default methods in the interface with abstract methods, and by adding the Necessary method Implementations to all classes which implement that interface.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_retrolambda_and_hippocms">Retrolambda (and HippoCms)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Take, for example, <a href="https://code.onehippo.org/cms-community/hippo-cms">the following</a> project.</p>
+</div>
+<div class="paragraph">
+<p>Suppose that initially have this interface module with the default method.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">public interface IconProvider extends IClusterable {
+	default Component getIcon(final String id, IconSize size) {
+		return null;
+	}
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Retrolambda what makes this class is transformed into this one.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">public abstract interface IconProvider2 extends IClusterable {
+  public abstract Component getIcon(String paramString, IconSize paramIconSize);
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And implements that method (through the "companion class") in classes that implement the interface, classes in the same module.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, if not process all child classes that interface module in the past, and will not, so&#8230;&#8203;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">public class SearchingSectionPlugin extends RenderPlugin implements IBrowserSection</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>this in another module, trying to be compiled gives this error</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-java" data-lang="java">[ERROR] /hippo-cms/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/SearchingSectionPlugin.java:[63,7]
+	error: SearchingSectionPlugin is not abstract and does not override abstract method getIcon(String,IconSize) in IconProvider</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_first_conclusions">First conclusions</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>At first, unread well the error message, and without understanding the class hierarchy of the project, I thought it might help <a href="https://github.com/orfjackal/retrolambda/pull/101">this PR</a></p>
+</div>
+<div class="paragraph">
+<p>If you want to understand more in detail, <a href="https://maven.apache.org/guides/introduction/introduction-to-the-lifecycle.html#Setting_Up_Your_Project_to_Use_the_Build_Lifecycle">here</a> some notes on the Lifecycle of maven. And <a href="http://maven.apache.org/guides/mini/guide-maven-classloading.html">here</a> on classloading.</p>
+</div>
+<div class="paragraph">
+<p>Then read more in detail, I thought the problem was that the transformation the interface to abstract &#8230;&#8203; well, i admit <a href="https://twitter.com/nicolas_frankel/status/786202575150407680">this tweet</a> had distracted me from the real problem, because <a href="https://stackoverflow.com/questions/7202616/java-abstract-interface/7202659#7202659">	the interfaces are abstract (by default)</a>.</p>
+</div>
+<div class="paragraph">
+<p>And the own <a href="https://twitter.com/orfjackal">Esko Luontola</a> explains why. "8 pre-Java JVMs support only abstract methods in interfaces (the &lt;clinit&gt; method being an exception). Retrolambda code inserts the default method implementing to all classes, JVM 8 thus emulating what does."</p>
+</div>
+<div class="paragraph">
+<p><a href="https://docs.oracle.com/javase/tutorial/java/IandI/defaultmethods.html">Here</a> a more detailed explanation of how to operate the Default Methods in JDK 8. And <a href="https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html">here</a> oracle&#8217;s explanation on "abstract".</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_explanation_of_the_real_problem">Explanation of the real problem</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>But the problem, in this case, was simply the limitation of the library in multi module projects <a href="https://github.com/orfjackal/retrolambda/issues/56">here</a> and
+<a href="https://github.com/orfjackal/retrolambda/issues/58">here</a> as also discussed in detail.</p>
+</div>
+<div class="paragraph">
+<p>A way out by making small manual changes in the code, it would be implementing the method getIcon(String, IconSize) with the default behavior in class the second module.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">diff --git a/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/BrowsingSectionPlugin.java b/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/BrowsingSectionPlugin.java
+index 99bdb0e..9b34ce1 100644
+--- a/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/BrowsingSectionPlugin.java
++++ b/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/BrowsingSectionPlugin.java
+@@ -18,6 +18,7 @@
+ import javax.jcr.Node;
+ import javax.jcr.RepositoryException;
+
++import org.apache.wicket.Component;
+ import org.apache.wicket.model.IModel;
+ import org.apache.wicket.request.resource.ResourceReference;
+ import org.hippoecm.frontend.l10n.ResourceBundleModel;
+@@ -144,4 +145,10 @@
+         return null;
+     }
+
++    @Override
++    public Component getIcon(String id, IconSize size) {
++    	return null;
++    }
++
++
+ }
+diff --git a/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/SearchingSectionPlugin.java b/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/SearchingSectionPlugin.java
+index 450712b..9d09210 100644
+--- a/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/SearchingSectionPlugin.java
++++ b/perspectives/src/main/java/org/hippoecm/frontend/plugins/cms/browse/section/SearchingSectionPlugin.java
+@@ -56,6 +56,7 @@
+ import org.hippoecm.frontend.service.IconSize;
+ import org.hippoecm.frontend.service.render.RenderPlugin;
+ import org.hippoecm.frontend.skin.Icon;
++import org.hippoecm.frontend.skin.IconProvider;
+ import org.hippoecm.repository.api.HippoNodeType;
+ import org.slf4j.Logger;
+ import org.slf4j.LoggerFactory;
+@@ -337,6 +338,11 @@
+     public ResourceReference getIcon(IconSize type) {
+         return null;
+     }
++
++    @Override
++    public Component getIcon(String id, IconSize size) {
++    	return null;
++    }
+
+     private boolean hasSearchResult() {
+         return collection.getType() == DocumentCollectionType.SEARCHRESULT;</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_next_steps">Next steps?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://github.com/teras">Teras</a> and <a href="https://github.com/orfjackal">Orfjackal</a>, why the PR 101 does not modify these classes to make that change? Maybe it does because there is already a method with that name, although not with the same number of parameters?</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_and_what_happend_with_the_retrolambda_compilation_of_hippocms">And what happend with the retrolambda compilation of HippoCms?</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Even some mistake &#8230;&#8203; we have to solve static method &#8230;&#8203;</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">[ERROR] hippo-cms/workflow/frontend/src/main/java/org/hippoecm/frontend/plugins/reviewedactions/list/ReviewedActionsListColumnProviderPlugin.java:[72,38] error: cannot find symbol
+[ERROR] symbol:   method of(Calendar)
+[ERROR] location: interface DateTimePrinter
+[ERROR] hippo-cms/workflow/frontend/src/main/java/org/hippoecm/frontend/plugins/reviewedactions/list/ReviewedActionsListColumnProviderPlugin.java:[79,38] error: cannot find symbol
+[ERROR] symbol:   method of(Calendar)
+[ERROR] location: interface DateTimePrinter</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Static methods on interfaces are backported by moving the static methods to a companion class (interface name + "$"), and by changing all methods calls to call the new method location.[1]</p>
+</div>
+<div class="paragraph">
+<p>In this case, the temporary solution is to change the import in the classes of the second module, the companion class.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight"><code class="language-bash" data-lang="bash">diff --git a/workflow/frontend/src/main/java/org/hippoecm/frontend/plugins/reviewedactions/RequestsView.java b/workflow/frontend/src/main/java/org/hippoecm/frontend/plugins/reviewedactions/RequestsView.java
+index 5a97066..ab938b7 100644
+--- a/workflow/frontend/src/main/java/org/hippoecm/frontend/plugins/reviewedactions/RequestsView.java
++++ b/workflow/frontend/src/main/java/org/hippoecm/frontend/plugins/reviewedactions/RequestsView.java
+@@ -41,7 +41,7 @@
+ import org.hippoecm.frontend.plugin.IPluginContext;
+ import org.hippoecm.frontend.plugins.reviewedactions.model.Request;
+ import org.hippoecm.frontend.plugins.reviewedactions.model.RequestModel;
+-import org.hippoecm.frontend.plugins.standards.datetime.DateTimePrinter;
++import org.hippoecm.frontend.plugins.standards.datetime.DateTimePrinter$;
+ import org.hippoecm.frontend.plugins.standards.icon.HippoIcon;
+ import org.hippoecm.frontend.session.UserSession;
+ import org.hippoecm.frontend.skin.Icon;
+@@ -110,7 +110,7 @@
+                 String state = request.getState();
+
+                 final String parameter = schedule != null ?
+-                        DateTimePrinter.of(schedule).appendDST().print(FormatStyle.FULL) : "??";
++                        DateTimePrinter$.of(schedule).appendDST().print(FormatStyle.FULL) : "??";
+                 return new StringResourceModel("state-" + state, this, null, "unknown", parameter);
+             }</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_final_notes">Final notes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you&#8217;ve used in your project with JDK 8 are streaming APIs, you can use <a href="https://sourceforge.net/projects/streamsupport/">this</a>.</p>
+</div>
+<div class="paragraph">
+<p>Here is a <a href="https://en.wikipedia.org/wiki/Java_backporting_tools">brief history</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_extra_ball">Extra ball</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="http://stackoverflow.com/questions/31160831/android-groovy-android-annotation">Groovy Android and APT</a></p>
 </div>
 </div>
 </div>
@@ -427,43 +429,43 @@ Jeje, bueno, esto para otro dia :)</p>
 <!-- Social Share Button HTML -->
 
 <!-- Twitter -->
-<li><a href="//twitter.com/share?url=https://josejuanmontiel.github.io/blog/2017/07/groovy-metaprograming.es.html&text=Groovy Metaprograming&via=accreativos" target="_blank" class="share-btn twitter">
+<li><a href="//twitter.com/share?url=https://josejuanmontiel.github.io/blog/2016/10/retrolambda.html&text=Retrolambda and default methods&via=accreativos" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
 </a></li>
 
 <!-- Google Plus -->
-<li><a href="//plus.google.com/share?url=https://josejuanmontiel.github.io/blog/2017/07/groovy-metaprograming.es.html" target="_blank" class="share-btn google-plus">
+<li><a href="//plus.google.com/share?url=https://josejuanmontiel.github.io/blog/2016/10/retrolambda.html" target="_blank" class="share-btn google-plus">
     <i class="fa fa-google-plus"></i>
     <p>Google+</p>
 </a></li>
 
 <!-- Facebook -->
-<li><a href="//www.facebook.com/sharer/sharer.php?u=https://josejuanmontiel.github.io/blog/2017/07/groovy-metaprograming.es.html" target="_blank" class="share-btn facebook">
+<li><a href="//www.facebook.com/sharer/sharer.php?u=https://josejuanmontiel.github.io/blog/2016/10/retrolambda.html" target="_blank" class="share-btn facebook">
     <i class="fa fa-facebook"></i>
     <p>Facebook</p>
 </a></li>
 
 <!-- Reddit (url, title) -->
-<li><a href="//reddit.com/submit?url=https://josejuanmontiel.github.io/blog/2017/07/groovy-metaprograming.es.html&title=Groovy Metaprograming" target="_blank" class="share-btn reddit">
+<li><a href="//reddit.com/submit?url=https://josejuanmontiel.github.io/blog/2016/10/retrolambda.html&title=Retrolambda and default methods" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
 </a></li>
 
 <!-- LinkedIn -->
-<li><a href="//www.linkedin.com/shareArticle?url=https://josejuanmontiel.github.io/blog/2017/07/groovy-metaprograming.es.html&title=Groovy Metaprograming" target="_blank" class="share-btn linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=https://josejuanmontiel.github.io/blog/2016/10/retrolambda.html&title=Retrolambda and default methods" target="_blank" class="share-btn linkedin">
     <i class="fa fa-linkedin"></i>
     <p>LinkedIn</p>
 </a></li>
 
 <!-- StumbleUpon (url, title) -->
-<li><a href="//www.stumbleupon.com/submit?url=https://josejuanmontiel.github.io/blog/2017/07/groovy-metaprograming.es.html&title=Groovy Metaprograming" target="_blank" class="share-btn stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=https://josejuanmontiel.github.io/blog/2016/10/retrolambda.html&title=Retrolambda and default methods" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
 </a></li>
 
 <!-- Email -->
-<li><a href="mailto:?subject=Check out this post by Jose Juan Montiel&body=https://josejuanmontiel.github.io/blog/2017/07/groovy-metaprograming.es.html" target="_blank" class="share-btn email">
+<li><a href="mailto:?subject=Check out this post by Jose Juan Montiel&body=https://josejuanmontiel.github.io/blog/2016/10/retrolambda.html" target="_blank" class="share-btn email">
     <i class="fa fa-envelope"></i>
     <p>Email</p>
 </a></li>
@@ -477,12 +479,12 @@ Jeje, bueno, esto para otro dia :)</p>
     	    <!-- Display the categories associated with this post -->
     	    <li><i class="fa fa-tags">&nbsp;</i>  Tags: </li>
  	        <li><a href='tags/jvm.html'>jvm</a></li>
- 	        <li><a href='tags/code.html'>code</a></li>
- 	        <li><a href='tags/generation.html'>generation</a></li>
- 	        <li><a href='tags/groovy.html'>groovy</a></li>
- 	        <li><a href='tags/thymeleaf.html'>thymeleaf</a></li>
+ 	        <li><a href='tags/retrolambda.html'>retrolambda</a></li>
+ 	        <li><a href='tags/hippocms.html'>hippocms</a></li>
+ 	        <li><a href='tags/android.html'>android</a></li>
+ 	        <li><a href='tags/apt.html'>apt</a></li>
 
-				<li><a class="icon fa-comment" href="2017/07/groovy-metaprograming.es.html#disqus_thread"> &nbsp;</a></li>
+				<li><a class="icon fa-comment" href="2016/10/retrolambda.html#disqus_thread"> &nbsp;</a></li>
  		</ul>
     	
     </footer>
@@ -551,6 +553,16 @@ Jeje, bueno, esto para otro dia :)</p>
                 <header>
                     <h3>Recent Posts</h3>
                 </header>
+                      <li>
+                          <article>
+                              <header>
+                                  <h3><a href="2016/10/retrolambda.html">Retrolambda and default methods</a></h3>
+                                   <time class="published"
+  							            datetime='oct 19, 2016'>
+  							            oct 19, 2016</time>
+                              </header>
+                          </article>
+                      </li>
 
             </ul>
         </section>
